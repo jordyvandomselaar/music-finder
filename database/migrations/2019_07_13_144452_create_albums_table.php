@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAlbumsTable extends Migration
 {
@@ -17,7 +17,7 @@ class CreateAlbumsTable extends Migration
             $table->bigIncrements('id');
             $table->string('spotify_id');
             $table->string('name');
-            $table->integer('popularity');
+            $table->integer('popularity')->nullable();
             $table->timestamps();
         });
     }

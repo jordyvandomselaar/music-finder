@@ -10,16 +10,16 @@ class SpotifyController extends Controller
 {
     public function redirect()
     {
-        return Socialite::with('spotify')->redirect();
+        return Socialite::with('spotify')->scopes(['user-top-read'])->redirect();
     }
 
     public function callback()
     {
-        $user = Socialite::driver('spotify')->user();
+        $user = Socialite::with('spotify')->user();
 
         SpotifyUser::firstOrCreate(
             [
-                'id' => $user->id,
+                'spotify_id' => $user->id,
             ],
             [
                 'access_token' => $user->token,
@@ -27,6 +27,6 @@ class SpotifyController extends Controller
             ]
         );
 
-        redirect('/');
+        return redirect('/');
     }
 }
