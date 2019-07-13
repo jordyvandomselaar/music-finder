@@ -15,6 +15,9 @@ class CreateTracksTable extends Migration
     {
         Schema::create('tracks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('spotify_id');
+            $table->string('name');
+            $table->integer('popularity');
             $table->timestamps();
         });
     }

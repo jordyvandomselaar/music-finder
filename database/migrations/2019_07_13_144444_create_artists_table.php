@@ -15,6 +15,9 @@ class CreateArtistsTable extends Migration
     {
         Schema::create('artists', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('spotify_id');
+            $table->string('name');
+            $table->integer('popularity');
             $table->timestamps();
         });
     }
